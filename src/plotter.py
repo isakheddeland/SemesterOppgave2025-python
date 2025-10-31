@@ -34,6 +34,6 @@ def draw_the_map(axMap, df):
         axMap.text(xr[i], yr[i], s=label_from_nedbor(nedborAar[i]), color='white',
                    fontsize=10, ha='center', va='center')
     draw_legend(axMap)
-    axMap.set_title("Årsnedbør Stor Bergen")
+    axMap.set_title("Årsnedbør Bergen")
     axMap.axis('off')
     axMap.margins(x=0.01, y=0.01)
