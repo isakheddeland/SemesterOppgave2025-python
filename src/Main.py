@@ -65,7 +65,7 @@ axMap = fig.add_axes((0.41, 0.07, 0.59, 0.85))
 draw_label_and_ticks(axGraph)
 draw_the_map(axMap, df)
 
-# Radiobutton
+
 axRadio = fig.add_axes([0.02, 0.4, 0.1, 0.15])
 radio = RadioButtons(axRadio, ('Måned', 'Kvartal'))
 radio.on_clicked(on_radio)
