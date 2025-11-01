@@ -70,5 +70,5 @@ axRadio = fig.add_axes([0.02, 0.4, 0.1, 0.15])
 radio = RadioButtons(axRadio, ('Måned', 'Kvartal'))
 radio.on_clicked(on_radio)
 
-fig.canvas.mpl_connect('button_press_event', on_click)
+plt.connect('button_press_event', on_click)
 plt.show()

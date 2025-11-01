@@ -14,13 +14,10 @@ def draw_legend(axMap):
 
 def draw_the_map(axMap, df):
     axMap.cla()
-    try:
-        img = mpimg.imread('images/StorBergen2.png')
-        axMap.imshow(img, extent=(0, 13, 0, 10))
-        axMap.set_xlim(0, 13)
-        axMap.set_ylim(0, 10)
-    except FileNotFoundError:
-        print("Finner ikke bildet StorBergen2.png! Fortsetter uten bakgrunn.")
+    img = mpimg.imread('images/StorBergen2.png')
+    axMap.imshow(img, extent=(0, 13, 0, 10))
+    axMap.set_xlim(0, 13)
+    axMap.set_ylim(0, 10)
 
     df_year = df.groupby(['X','Y']).agg({'Nedbor':'sum'}).reset_index()
     xr = df_year['X'].tolist()
@@ -31,9 +28,8 @@ def draw_the_map(axMap, df):
     axMap.scatter(xr, yr, c=ColorList, s=size_from_nedbor(nedborAar/12), alpha=1)
 
     for i in range(len(xr)):
-        axMap.text(xr[i], yr[i], s=label_from_nedbor(nedborAar[i]), color='white',
-                   fontsize=10, ha='center', va='center')
+        axMap.text(xr[i], yr[i], s=label_from_nedbor(nedborAar[i]), color='white', fontsize=10, ha='center', va='center')
     draw_legend(axMap)
-    axMap.set_title("Årsnedbør Bergen")
+    axMap.set_title("click rød er estimert")
     axMap.axis('off')
     axMap.margins(x=0.01, y=0.01)
